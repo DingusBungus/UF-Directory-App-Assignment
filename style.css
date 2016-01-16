@@ -3,6 +3,46 @@
 }
 
 .tableWrapper {
-  max-height: 400px;
+  max-height: 500px;
   overflow: auto;
+}
+
+.formContainer {
+	position: relative;
+	padding-top: 20px;
+	background-color: #FDE3A7;
+	height: 300px;
+}
+
+#submitBtn {
+	margin-top: 10px;
+	padding-left: 8px;
+	padding-right: 8px;
+	padding-top: 3px;
+	padding-bottom: 3px;
+}
+
+.pos {
+	position: relative;
+	left: 10%;
+}
+
+.pos1 {
+	position: relative;
+	left: 10.5%;
+}
+
+.pos2 {
+	position: relative;
+	left: 5.6%;
+}
+
+.pos3 {
+	position: relative;
+	left: 5.8%;
+}
+
+.pos4 {
+	position: relative;
+	left: 2.7%;
 }
