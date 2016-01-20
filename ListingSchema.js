@@ -3,13 +3,34 @@ var mongoose = require('mongoose'),
     Schema = mongoose.Schema;
 
 /* Create your schema */
+//I figure code and name should both be unique and required. The other fields, not so much.
 var listingSchema = new Schema({
-  /* your code here */
+  code: { type: String, required: true,  unique: true },
+  name: { type: String, required: true,  unique: true },
+  coordinates: {
+  	latitude: Number,
+  	longitude: Number
+  },
+  address: String,
+  updated_at: Date,
+  created_at: Date
 });
 
 /* create a 'pre' function that adds the updated_at (and created_at if not already there) property */
 listingSchema.pre('save', function(next) {
-  /* your code here */
+
+  var currentDate = new Date();
+
+  //if hasn't been created yet, set the date
+  if (!this.created_at) {
+  	this.created_at = currentDate;
+  }
+
+  //always update this field
+  this.updated_at = currentDate;
+
+  //move to the next entry
+  next();
 });
 
 /* Use your schema to instantiate a Mongoose model */

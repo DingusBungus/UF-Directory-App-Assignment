@@ -1,3 +1,13 @@
+/* Import the necessities */
+
+var mongoose = require('mongoose'), 
+    Schema = mongoose.Schema, 
+    Listing = require('./ListingSchema.js'), 
+    config = require('./config');
+
+/* Connect to your database */
+mongoose.Connect(config.db.uri);
+
 /* Fill out these functions using Mongoose queries*/
 
 var findLibraryWest = function() {
@@ -5,6 +15,13 @@ var findLibraryWest = function() {
     Find the document that contains data corresponding to Library West,
     then log it to the console. 
    */
+   Listing.find({name: 'Library West'}, function(err, doc) {
+    //throw error if found
+    if (err) throw err;
+
+    //otherwise print listing to console
+    console.log(doc);
+   });
 };
 var removeCable = function() {
   /*
@@ -12,6 +29,14 @@ var removeCable = function() {
     on cable TV. Since we live in the 21st century and most courses are now web based, go ahead
     and remove this listing from your database and log the document to the console. 
    */
+   Listing.remove({code: 'CABL'}, function(err, doc) {
+    //throw error if found
+    if (err) throw err;
+
+    //otherwise print listing to console
+    console.log(doc);
+   });
+
 };
 var updatePhelpsMemorial = function() {
   /*
