@@ -5,8 +5,8 @@ var mongoose = require('mongoose'),
 /* Create your schema */
 //I figure code and name should both be unique and required. The other fields, not so much.
 var listingSchema = new Schema({
-  code: { type: String, required: true,  unique: true },
-  name: { type: String, required: true,  unique: true },
+  code: { type: String, required: true },
+  name: { type: String, required: true },
   coordinates: {
   	latitude: Number,
   	longitude: Number

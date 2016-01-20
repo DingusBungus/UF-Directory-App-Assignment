@@ -17,6 +17,7 @@ mongoose.connect(config.db.uri);
   Instantiate a mongoose model for each listing object in the JSON file, 
   and then save it to your Mongo database 
  */
+ console.log('Number of entries:' + listings.entries.length);
  for (var i = 0; i < listings.entries.length; i++) {
 
   //Get each listing from file
@@ -53,10 +54,10 @@ mongoose.connect(config.db.uri);
   //Save each entry and log to console
   listingToDB.save(function(err) {
     if (err) throw err;
-
-    //For debugging purposes
-    console.log('Saving entry: \n' + listingToDB);
   });
+
+  //For debugging purposes
+  console.log('Saving entry #' + i + ':' + listingToDB.code);
 
  }; //end for-loop
 
